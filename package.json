@@ -1,0 +1,16 @@
+{
+  "name": "@codespartan/todos-monorepo",
+  "version": "0.1.0",
+  "description": "Ejemplo de lista de TODOs en distintas tecnologías",
+  "license": "MIT",
+  "private": true,
+  "author": "John Krbaio <contacto@codespartan.es>",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "dev:react": "pnpm --filter react-todo dev",
+    "dev:vue": "pnpm --filter vue-todo dev",
+    "dev:angular": "pnpm --filter angular-todo start",
+    "dev:vanilla": "pnpm --filter vanilla-todo start"
+  }
+}
