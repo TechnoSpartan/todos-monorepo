@@ -1,0 +1,33 @@
+{
+  "name": "@codespartan/todos-monorepo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Ejemplo de lista de TODOs en distintas tecnologías",
+  "keywords": [
+    "todo-list",
+    "example",
+    "real-tools"
+  ],
+  "homepage": "https://github.com/TechnoSpartan/todos-monorepo#readme",
+  "bugs": {
+    "url": "https://github.com/TechnoSpartan/todos-monorepo/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TechnoSpartan/todos-monorepo.git"
+  },
+  "license": "MIT",
+  "author": "John Krbaio <contacto@codespartan.es>",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "dev:angular": "pnpm --filter angular-todo start",
+    "dev:react": "pnpm --filter react-todo dev",
+    "dev:vanilla": "pnpm --filter vanilla-todo start",
+    "dev:vue": "pnpm --filter vue-todo dev"
+  },
+  "dependencies": {
+    "eslint-scope": "5.1.1"
+  },
+  "devDependencies": {}
+}

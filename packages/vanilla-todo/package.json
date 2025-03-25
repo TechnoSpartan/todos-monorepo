@@ -1,0 +1,13 @@
+{
+  "name": "vanilla-todo",
+  "version": "0.1.0",
+  "description": "",
+  "main": "src/main.js",
+  "private": true,
+  "scripts": {
+    "start": "serve ."
+  },
+  "devDependencies": {
+    "serve": "^14.2.0"
+  }
+}
