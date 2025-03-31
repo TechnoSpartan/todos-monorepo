@@ -1,16 +1,25 @@
 {
   "name": "react-todo",
   "version": "1.0.0",
+  "type": "module",
   "scripts": {
+    "build": "vite build",
     "dev": "vite",
-    "build": "vite build"
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "sort": "pnpm exec sort-package-json"
   },
   "dependencies": {
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
   "devDependencies": {
+    "@codespartan/dev-tools": "workspace:*",
     "@vitejs/plugin-react": "^4.0.0",
+    "eslint": "9.23.0",
+    "eslint-plugin-react": "7.37.4",
+    "prettier": "4.0.0-alpha.12",
     "vite": "^4.0.0"
   }
 }

@@ -24,6 +24,7 @@
     "@angular-devkit/build-angular": "^19.2.4",
     "@angular/cli": "^19.2.4",
     "@angular/compiler-cli": "^19.2.0",
+    "@codespartan/dev-tools": "workspace:*",
     "typescript": "~5.7.2"
   }
 }
