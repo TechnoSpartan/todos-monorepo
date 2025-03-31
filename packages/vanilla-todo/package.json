@@ -8,6 +8,7 @@
     "start": "serve ."
   },
   "devDependencies": {
+    "@codespartan/dev-tools": "workspace:*",
     "serve": "^14.2.0"
   }
 }
