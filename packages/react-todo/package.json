@@ -2,12 +2,13 @@
   "name": "react-todo",
   "version": "1.0.0",
   "type": "module",
+  "description": "Ejemplo de una aplicación de tareas con React",
   "scripts": {
     "build": "vite build",
     "dev": "vite",
+    "format": "prettier --write .",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "format": "prettier --write .",
     "sort": "pnpm exec sort-package-json"
   },
   "dependencies": {

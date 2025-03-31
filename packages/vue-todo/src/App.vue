@@ -1,5 +1,5 @@
 <template>
-  <div style="margin: 20px;">
+  <div style="margin: 20px">
     <h1>Vue Todo</h1>
     <input v-model="newTodo" placeholder="Add a todo" />
     <button @click="addTodo">Add</button>
@@ -13,17 +13,17 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref } from "vue";
 
 export default {
   setup() {
     const todos = ref([]);
-    const newTodo = ref('');
+    const newTodo = ref("");
 
     function addTodo() {
       if (!newTodo.value.trim()) return;
       todos.value.push(newTodo.value);
-      newTodo.value = '';
+      newTodo.value = "";
     }
 
     function removeTodo(index) {
@@ -31,6 +31,6 @@ export default {
     }
 
     return { todos, newTodo, addTodo, removeTodo };
-  }
-}
+  },
+};
 </script>

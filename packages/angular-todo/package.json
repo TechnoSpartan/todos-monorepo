@@ -1,13 +1,19 @@
 {
   "name": "angular-todo",
   "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Ejemplo de una aplicación de tareas con Angular",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
     "build": "ng build",
+    "format": "prettier --write .",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "ng": "ng",
+    "sort": "pnpm exec sort-package-json",
+    "start": "ng serve",
     "watch": "ng build --watch --configuration development"
   },
-  "private": true,
   "dependencies": {
     "@angular/common": "^19.2.0",
     "@angular/compiler": "^19.2.0",
@@ -22,9 +28,11 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^19.2.4",
+    "@angular-eslint/eslint-plugin": "19.3.0",
     "@angular/cli": "^19.2.4",
     "@angular/compiler-cli": "^19.2.0",
     "@codespartan/dev-tools": "workspace:*",
+    "@typescript-eslint/parser": "8.28.0",
     "typescript": "~5.7.2"
   }
 }
