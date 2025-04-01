@@ -82,3 +82,4 @@ e2e/*.js
 e2e/*.map
 .DS_Store/
 *.npmrc
+packages/angular-todo/.angular
