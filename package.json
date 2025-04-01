@@ -1,16 +1,59 @@
 {
   "name": "@codespartan/todos-monorepo",
   "version": "0.1.0",
-  "description": "Ejemplo de lista de TODOs en distintas tecnologías",
-  "license": "MIT",
   "private": true,
+  "description": "Ejemplo de lista de TODOs en distintas tecnologías",
+  "keywords": [
+    "todo-list",
+    "example",
+    "real-tools"
+  ],
+  "homepage": "https://github.com/TechnoSpartan/todos-monorepo#readme",
+  "bugs": {
+    "url": "https://github.com/TechnoSpartan/todos-monorepo/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TechnoSpartan/todos-monorepo.git"
+  },
+  "license": "MIT",
   "author": "John Krbaio <contacto@codespartan.es>",
-  "type": "commonjs",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "dev:react": "pnpm --filter react-todo dev",
-    "dev:vue": "pnpm --filter vue-todo dev",
     "dev:angular": "pnpm --filter angular-todo start",
-    "dev:vanilla": "pnpm --filter vanilla-todo start"
+    "dev:react": "pnpm --filter react-todo dev",
+    "dev:vanilla": "pnpm --filter vanilla-todo start",
+    "dev:vue": "pnpm --filter vue-todo dev",
+    "cz": "cz",
+    "prepare": "husky",
+    "lint-staged": "lint-staged",
+    "release:please": "release-please release-pr --repo=@codespartan/todos-monorepo --token=$GITHUB_TOKEN --default-branch=main --config-file=@codespartan/dev-config/release-please/release-please.json",
+    "sort": "pnpm --filter 'packages/*' run sort --parallel",
+    "lint:all": "pnpm --parallel --filter \"./packages/**\" run lint"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,vue}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "**/*.{html,json,css,scss,md,mdx}": [
+      "prettier -w"
+    ]
+  },
+  "devDependencies": {
+    "@commitlint/cli": "19.8.0",
+    "@commitlint/config-conventional": "19.8.0",
+    "husky": "9.1.7",
+    "lint-staged": "15.5.0",
+    "sort-package-json": "3.0.0"
+  },
+  "dependencies": {
+    "@codespartan/dev-tools": "workspace:*",
+    "@eslint/js": "9.23.0",
+    "eslint": "9.23.0",
+    "eslint-scope": "5.1.1",
+    "globals": "16.0.0",
+    "typescript-eslint": "8.28.0"
   }
 }

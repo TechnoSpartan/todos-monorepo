@@ -1,0 +1,8 @@
+# Formatear staged files con Prettier
+prettier $(git diff --cached --name-only --diff-filter=ACMR | sed 's| |\\ |g') --write --ignore-unknown
+
+# Ejecutar lint-staged
+pnpm lint-staged
+
+# Actualizar el index de Git
+git update-index --again
