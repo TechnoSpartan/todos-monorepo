@@ -1,0 +1,10 @@
+BRANCH_NAME=$(git symbolic-ref --short HEAD)
+PREFIX=$(echo "$BRANCH_NAME" | sed -E 's|.*/([A-Z]+-[0-9]+).*|\1|')
+
+# Solo actúa si no es un merge commit
+if [ "$2" != "merge" ]; then
+  # Añade la referencia al final del commit (segunda línea)
+  if ! grep -q "$PREFIX" "$1"; then
+    echo "\nRelacionado con $PREFIX" >> "$1"
+  fi
+fi
