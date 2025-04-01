@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from "@angular/core";
+import { RouterOutlet } from "@angular/router";
+import { CommonModule } from "@angular/common";
+import { FormsModule } from "@angular/forms";
 
 @Component({
-  selector: 'app-root',
-  imports: [RouterOutlet],
+  selector: "app-root",
+  imports: [RouterOutlet, CommonModule, FormsModule],
   template: `
     <div style="margin: 20px;">
       <h1>Angular Todo</h1>
@@ -22,5 +24,17 @@ import { RouterOutlet } from '@angular/router';
   styles: [],
 })
 export class AppComponent {
-  title = 'angular';
+  newTodo = "";
+  todos: string[] = [];
+
+  addTodo() {
+    if (this.newTodo.trim()) {
+      this.todos.push(this.newTodo);
+      this.newTodo = "";
+    }
+  }
+
+  removeTodo(index: number) {
+    this.todos.splice(index, 1);
+  }
 }
