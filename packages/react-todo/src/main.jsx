@@ -12,7 +12,7 @@ function App() {
   };
 
   const removeTodo = (index) => {
-    setTodos(todos.filter((_, i) => i !== index));
+    setTodos(todos.filter((_, index_) => index_ !== index));
   };
 
   return (

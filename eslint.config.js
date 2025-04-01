@@ -1,19 +1,6 @@
-import { defineConfig } from "eslint/config";
-import globals from "globals";
-import js from "@eslint/js";
-import tseslint from "typescript-eslint";
+import baseConfig from "@codespartan/dev-tools/eslint-config";
 
-export default defineConfig([
-  { files: ["**/*.{js,mjs,cjs,ts}"] },
-  {
-    files: ["**/*.{js,mjs,cjs,ts}"],
-    languageOptions: { globals: globals.browser },
-  },
-  {
-    files: ["**/*.{js,mjs,cjs,ts}"],
-    plugins: { js },
-    extends: ["js/recommended"],
-  },
-  { ignores: ["node_modules/", "dist/", "build/", "coverage/", "packages/"] },
-  tseslint.configs.recommended,
-]);
+export default [
+  ...baseConfig,
+  { ignores: ["**/dist/**", "**/build/**", "**/packages/**"] },
+];

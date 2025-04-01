@@ -3,15 +3,19 @@
  * @type {import("prettier").Config}
  */
 const config = {
+  singleQuote: true,
+  jsxSingleQuote: true,
   trailingComma: "all",
+  bracketSpacing: true,
+  objectWrap: "preserve",
   tabWidth: 4,
   semi: true,
-  singleQuote: true,
   printWidth: 80,
   useTabs: true,
-  bracketSpacing: true,
   arrowParens: "avoid",
-  endOfLine: "auto",
+  endOfLine: "lf",
+  quoteProps: "as-needed",
+  singleAttributePerLine: true,
 };
 
 export default config;

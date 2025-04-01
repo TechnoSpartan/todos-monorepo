@@ -1,32 +1,91 @@
-// 2) Importamos plugins/parsers extra que vayamos a usar
-import prettierPlugin from "eslint-plugin-prettier";
-import angularEslintPlugin from "@angular-eslint/eslint-plugin";
 import baseConfig from "@codespartan/dev-tools/eslint-config";
-import tsParser from "@typescript-eslint/parser";
+import angular from "angular-eslint";
+import tsEslint from "typescript-eslint";
+import process from "node:process";
 
-export default [
-  // Config base
-  ...baseConfig,
+const angularEslintConfig = tsEslint.config(
+  // 👉 Configuración para archivos .ts en Angular
   {
-    // Usamos @typescript-eslint/parser
+    files: ["./src/**/*.ts"],
     languageOptions: {
-      parser: tsParser,
+      parser: tsEslint.parser,
       parserOptions: {
-        project: ["./tsconfig.json"], // Ajusta a tu TS config
+        project: ["./tsconfig.json"],
         tsconfigRootDir: process.cwd(),
+        ecmaVersion: "latest",
+        sourceType: "module",
       },
     },
-
     plugins: {
-      "@angular-eslint": angularEslintPlugin,
-      prettier: prettierPlugin,
+      "@angular-eslint": angular,
     },
-
+    processor: angular.processInlineTemplates,
     rules: {
-      // Reglas recomendadas para Angular
-      ...angularEslintPlugin.configs.recommended.rules,
-      // Reglas Prettier
-      "prettier/prettier": "error",
+      ...angular.configs.tsRecommended[0].rules,
+      "@angular-eslint/directive-selector": [
+        "error",
+        {
+          type: "attribute",
+          prefix: "app",
+          style: "camelCase",
+        },
+      ],
+      "@angular-eslint/component-selector": [
+        "error",
+        {
+          type: "element",
+          prefix: "app",
+          style: "kebab-case",
+        },
+      ],
     },
   },
+  // 👉 Configuración para templates HTML (.html)
+  {
+    files: ["./src/**/*.html"],
+    languageOptions: {
+      parser: angular.configs.templateRecommended[0].languageOptions?.parser,
+    },
+    plugins: {
+      "@angular-eslint/template":
+        angular.templatePlugin["@angular-eslint/template"],
+    },
+    rules: {
+      ...angular.configs.templateRecommended[0].rules,
+      ...angular.configs.templateAccessibility[0].rules,
+    },
+  },
+);
+
+export default [
+  {
+    ignores: [
+      "node_modules",
+      "build",
+      "dist",
+      "coverage",
+      ".angular",
+      ".angular-build",
+      ".angular-cache",
+      ".angular-cli.json",
+      "angular.json",
+      "package-lock.json",
+      "yarn.lock",
+      "pnpm-lock.yaml",
+      "pnpm-lock.yml",
+      "tsconfig.json",
+      "tslint.json",
+      "*.js.snap",
+      "*.test.js.snap",
+      "*.test.ts.snap",
+    ],
+  },
+  // 👉 Configuración base común del monorepo
+  ...baseConfig,
+
+  ...tsEslint.configs.recommended,
+  ...tsEslint.configs.stylistic,
+
+  // 👉 Configuración para Angular
+  ...angularEslintConfig,
 ];
