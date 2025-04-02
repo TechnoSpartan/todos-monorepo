@@ -4,13 +4,17 @@
   "description": "",
   "main": "index.js",
   "type": "module",
+  "bin": {
+    "codespartan-hooks": "./git-hooks/bin/codespartan-hooks.js",
+    "codespartan-scripts": "./scripts/bin/codespartan-scripts.js"
+  },
   "files": [
     "commitlint/index.js",
     "commitizen/index.js",
     "release-please/release-please.json",
     "eslint-config/legacy.js",
     "eslint-config/flat.js",
-    "prettier-config/indexrc.js"
+    "prettier-config/index.js"
   ],
   "exports": {
     "./prettier-config": "./prettier-config/index.js",
