@@ -1,3 +1,11 @@
+/* Importa tipografías desde fonts.css */
+@import "./fonts.css";
+
+/* Tailwind Layers */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   /* 🎨 Colores corporativos */
   --color-primary: #248ea9;

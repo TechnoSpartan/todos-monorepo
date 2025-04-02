@@ -1,14 +1,18 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <title>Vanilla Todo</title>
   </head>
   <body>
     <h1>Vanilla Todo</h1>
-    <input type="text" id="newTodo" placeholder="Add a todo" />
-    <button id="addBtn">Add</button>
-    <ul id="todoList"></ul>
-    <script src="src/main.js"></script>
+    <form id="todo-form">
+      <input id="todo-input" type="text" placeholder="Escribe tu tarea..." />
+      <button type="submit">Agregar</button>
+    </form>
+    <ul id="todo-list"></ul>
+    <script type="module" src="src/main.ts"></script>
   </body>
 </html>

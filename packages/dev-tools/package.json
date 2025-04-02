@@ -5,19 +5,38 @@
   "main": "index.js",
   "type": "module",
   "files": [
-    "commitlint/index.js",
-    "commitizen/index.js",
-    "release-please/release-please.json",
-    "eslint-config/legacy.js",
-    "eslint-config/flat.js",
-    "prettier-config/indexrc.js"
+    "dist/",
+    "release-please/release-please.json"
   ],
+  "scripts": {
+    "build": "tsup",
+    "clean": "rm -rf dist"
+  },
   "exports": {
-    "./prettier-config": "./prettier-config/index.js",
-    "./eslint-config": "./eslint-config/flat.js",
-    "./eslint-config-legacy": "./eslint-config/legacy.js",
-    "./commitlint": "./commitlint/index.js",
-    "./commitizen": "./commitizen/index.js",
+    "./eslint-config": {
+      "import": "./eslint-config/flat.js",
+      "require": "./dist/eslint-config/flat.cjs"
+    },
+    "./eslint-config-typescript": {
+      "import": "./eslint-config/typescript.js",
+      "require": "./dist/eslint-config/typescript.cjs"
+    },
+    "./eslint-config-legacy": {
+      "import": "./eslint-config/legacy.js",
+      "require": "./dist/eslint-config/legacy.cjs"
+    },
+    "./prettier-config": {
+      "import": "./prettier-config/index.js",
+      "require": "./dist/prettier-config/index.cjs"
+    },
+    "./commitlint": {
+      "import": "./commitlint/index.js",
+      "require": "./dist/commitlint/index.cjs"
+    },
+    "./commitizen": {
+      "import": "./commitizen/index.js",
+      "require": "./dist/commitizen/index.cjs"
+    },
     "./release-please": "./release-please/release-please.json"
   },
   "dependencies": {
@@ -42,7 +61,8 @@
     "eslint-plugin-prettier": "5.2.5",
     "globals": "16.0.0",
     "prettier": "4.0.0-alpha.12",
-    "release-please": "17.0.0"
+    "release-please": "17.0.0",
+    "tsup": "8.4.0"
   },
   "repository": {
     "type": "git",
@@ -51,6 +71,7 @@
   "private": true,
   "devDependencies": {
     "eslint-plugin-import": "^2.31.0",
-    "eslint-plugin-unicorn": "^58.0.0"
+    "eslint-plugin-unicorn": "^58.0.0",
+    "tsup": "8.4.0"
   }
 }
