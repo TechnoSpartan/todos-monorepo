@@ -1,0 +1,45 @@
+{
+  "name": "@codespartan/ui-theme",
+  "version": "0.1.0",
+  "keywords": [
+    "tailwind",
+    "ui",
+    "theme",
+    "codespartan",
+    "preset",
+    "typography"
+  ],
+  "license": "MIT",
+  "author": "John Krbaio <jcarballo@codespartan.es>",
+  "description": "Tailwind Theme UI corporativo para proyectos CodeSpartan",
+  "type": "module",
+  "exports": {
+    "./preset": "./preset.js",
+    "./theme.css": "./theme.css",
+    "./fonts.css": "./fonts.css",
+    "./tailwind-config": "./tailwind.config.js",
+    "./typography": "./typography.js",
+    "./index": "./index.js"
+  },
+  "main": "index.js",
+  "files": [
+    "preset.js",
+    "theme.css",
+    "fonts.css",
+    "tailwind.config.js",
+    "typography.js",
+    "index.js"
+  ],
+  "types": "./typography.d.ts",
+  "scripts": {
+    "build": "tsup",
+    "clean": "rm -rf dist",
+    "sort": "pnpm exec sort-package-json"
+  },
+  "devDependencies": {
+    "tsup": "8.4.0"
+  },
+  "peerDependencies": {
+    "tailwindcss": "4.1.0"
+  }
+}

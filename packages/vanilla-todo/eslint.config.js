@@ -1,3 +1,3 @@
-import baseConfig from "@codespartan/dev-tools/eslint-config";
+import tsEslint from "@codespartan/dev-tools/eslint-config-typescript";
 
-export default baseConfig;
+export default [...tsEslint];
