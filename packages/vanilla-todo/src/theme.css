@@ -1,0 +1,6 @@
+@import "@codespartan/ui-theme/fonts.css";
+@import "@codespartan/ui-theme/theme.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
