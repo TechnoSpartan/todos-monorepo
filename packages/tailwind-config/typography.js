@@ -5,7 +5,7 @@ export default {
     "Montserrat",
     "Orbitron",
     "Poppins",
-    "Inter", // fallback técnico
+    "Inter", // technical fallback
     "system-ui",
     "sans-serif",
   ],
