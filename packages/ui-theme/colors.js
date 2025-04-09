@@ -1,4 +1,4 @@
-// packages/tailwind-config/colors.js
+// packages/ui-theme/colors.js
 export default {
   primary: {
     DEFAULT: "#248ea9", // Azul verdoso

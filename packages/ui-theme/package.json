@@ -1,6 +1,10 @@
 {
   "name": "@codespartan/ui-theme",
   "version": "0.1.0",
+  "private": true,
+  "bin": {
+    "codespartan-ui-theme": "./bin/codespartan-ui-theme.js"
+  },
   "keywords": [
     "tailwind",
     "ui",
@@ -19,7 +23,8 @@
     "./fonts.css": "./fonts.css",
     "./tailwind-config": "./tailwind.config.js",
     "./typography": "./typography.js",
-    "./index": "./index.js"
+    "./index": "./index.js",
+    "./colors": "./colors.js"
   },
   "main": "index.js",
   "files": [

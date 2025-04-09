@@ -34,7 +34,8 @@
     "release:please": "release-please release-pr --repo=@codespartan/todos-monorepo --token=$GITHUB_TOKEN --default-branch=main --config-file=@codespartan/dev-config/release-please/release-please.json",
     "sort": "pnpm exec sort-package-json",
     "sort:all": "pnpm --parallel --if-present --filter \"./packages/**\" run sort",
-    "release": "codespartan-scripts release"
+    "release": "codespartan-scripts release",
+    "pruebas": "pnpm --filter react-todo exec codespartan-ui-theme"
   },
   "lint-staged": {
     "**/*.{js,ts,jsx,tsx,vue}": [

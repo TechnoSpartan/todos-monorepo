@@ -167,23 +167,38 @@ importers:
       "@codespartan/dev-tools":
         specifier: workspace:*
         version: link:../dev-tools
+      "@codespartan/ui-theme":
+        specifier: workspace:^
+        version: link:../ui-theme
+      "@tailwindcss/vite":
+        specifier: 4.1.1
+        version: 4.1.1(vite@4.5.10(@types/node@22.13.17)(less@4.2.2)(lightningcss@1.29.2)(sass@1.85.0)(terser@5.39.0))
       "@vitejs/plugin-react":
         specifier: ^4.0.0
         version: 4.3.4(vite@4.5.10(@types/node@22.13.17)(less@4.2.2)(lightningcss@1.29.2)(sass@1.85.0)(terser@5.39.0))
+      autoprefixer:
+        specifier: 10.4.21
+        version: 10.4.21(postcss@8.5.3)
       eslint:
         specifier: 9.23.0
         version: 9.23.0(jiti@2.4.2)
       eslint-plugin-react:
         specifier: 7.37.4
         version: 7.37.4(eslint@9.23.0(jiti@2.4.2))
+      postcss:
+        specifier: 8.5.3
+        version: 8.5.3
       prettier:
         specifier: 4.0.0-alpha.12
         version: 4.0.0-alpha.12
+      tailwindcss:
+        specifier: 4.1.1
+        version: 4.1.1
       vite:
         specifier: ^4.0.0
         version: 4.5.10(@types/node@22.13.17)(less@4.2.2)(lightningcss@1.29.2)(sass@1.85.0)(terser@5.39.0)
 
-  packages/tailwind-config:
+  packages/ui-theme:
     dependencies:
       tailwindcss:
         specifier: 4.1.0
@@ -200,7 +215,7 @@ importers:
         version: link:../dev-tools
       "@codespartan/ui-theme":
         specifier: workspace:*
-        version: link:../tailwind-config
+        version: link:../ui-theme
       "@tailwindcss/postcss":
         specifier: 4.1.1
         version: 4.1.1
@@ -13088,6 +13103,13 @@ snapshots:
       "@tailwindcss/oxide": 4.1.1
       postcss: 8.5.3
       tailwindcss: 4.1.1
+
+  "@tailwindcss/vite@4.1.1(vite@4.5.10(@types/node@22.13.17)(less@4.2.2)(lightningcss@1.29.2)(sass@1.85.0)(terser@5.39.0))":
+    dependencies:
+      "@tailwindcss/node": 4.1.1
+      "@tailwindcss/oxide": 4.1.1
+      tailwindcss: 4.1.1
+      vite: 4.5.10(@types/node@22.13.17)(less@4.2.2)(lightningcss@1.29.2)(sass@1.85.0)(terser@5.39.0)
 
   "@tailwindcss/vite@4.1.1(vite@6.2.4(@types/node@22.13.17)(jiti@2.4.2)(less@4.2.2)(lightningcss@1.29.2)(sass@1.85.0)(terser@5.39.0)(yaml@2.7.1))":
     dependencies:
