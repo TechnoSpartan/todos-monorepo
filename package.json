@@ -29,19 +29,26 @@
     "lint-staged": "lint-staged",
     "lint:all": "pnpm --parallel --if-present --filter \"./packages/**\" run lint",
     "lint:fix:all": "pnpm --parallel --if-present --filter \"./packages/**\" run lint:fix",
+    "lint:changed": "eslint $(git diff --name-only --cached --diff-filter=ACMRTUXB HEAD | grep '\\.*\\(js\\|ts\\|jsx\\|tsx\\|vue\\)$')",
     "prepare": "husky",
     "release:please": "release-please release-pr --repo=@codespartan/todos-monorepo --token=$GITHUB_TOKEN --default-branch=main --config-file=@codespartan/dev-config/release-please/release-please.json",
     "sort": "pnpm exec sort-package-json",
-    "sort:all": "pnpm --parallel --if-present --filter \"./packages/**\" run sort"
+    "sort:all": "pnpm --parallel --if-present --filter \"./packages/**\" run sort",
+    "release": "codespartan-scripts release"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx,vue}": [
+    "**/*.{js,ts,jsx,tsx,vue}": [
       "eslint --fix",
       "prettier --write",
-      "git add ."
+      "git add"
+    ],
+    "**/*.{json,md,yml,yaml}": [
+      "prettier --write",
+      "git add"
     ],
     "**/*.{html,json,css,scss,md,mdx}": [
-      "prettier -w"
+      "prettier -w",
+      "git add"
     ]
   },
   "dependencies": {
@@ -55,9 +62,11 @@
   "devDependencies": {
     "@commitlint/cli": "19.8.0",
     "@commitlint/config-conventional": "19.8.0",
+    "commitizen": "4.3.1",
     "husky": "9.1.7",
     "lint-staged": "15.5.0",
     "prettier": "4.0.0-alpha.12",
-    "sort-package-json": "3.0.0"
+    "sort-package-json": "3.0.0",
+    "typedoc": "^0.28.1"
   }
 }
