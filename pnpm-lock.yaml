@@ -34,7 +34,7 @@ importers:
         version: 19.8.0
       commitizen:
         specifier: 4.3.1
-        version: 4.3.1(@types/node@22.13.13)(typescript@5.7.3)
+        version: 4.3.1(@types/node@22.13.17)(typescript@5.7.3)
       husky:
         specifier: 9.1.7
         version: 9.1.7
