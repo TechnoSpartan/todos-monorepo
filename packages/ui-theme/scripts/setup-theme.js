@@ -7,6 +7,7 @@ import { execSync } from "child_process";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const cwd = process.cwd();
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -15,8 +16,6 @@ const rl = readline.createInterface({
 
 const ask = (question) =>
   new Promise((resolve) => rl.question(question, resolve));
-
-const cwd = process.cwd();
 
 const writeFile = (filename, content) => {
   const filePath = path.join(cwd, filename);
@@ -30,9 +29,12 @@ const writeFile = (filename, content) => {
 
 const installDeps = () => {
   console.log("📦 Instalando dependencias necesarias...");
-  execSync("pnpm add -D tailwindcss postcss autoprefixer @tailwindcss/vite", {
-    stdio: "inherit",
-  });
+  execSync(
+    "pnpm add -D tailwindcss postcss autoprefixer @tailwindcss/postcss",
+    {
+      stdio: "inherit",
+    },
+  );
 };
 
 const createTailwindConfig = () => {
@@ -59,16 +61,19 @@ const createPostcssConfig = () => {
   );
 };
 
-const createThemeCSS = () => {
-  writeFile(
-    "src/theme.css",
-    `@import '@codespartan/ui-theme/fonts.css';
-@import '@codespartan/ui-theme/theme.css';
+const createThemeCSS = (type = "full") => {
+  const isSlim = type.toLowerCase().includes("slim");
+  const themeFile = isSlim ? "theme-slim.css" : "theme-full.css";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;`,
-  );
+  const content = `${!isSlim ? `@import '@codespartan/ui-theme/fonts.css';\n` : ""}
+      @import '@codespartan/ui-theme/${themeFile}';
+      
+      @tailwind base;
+      @tailwind components;
+      @tailwind utilities;
+      `;
+
+  writeFile("src/theme.css", content);
 };
 
 const patchMainEntry = async () => {
@@ -93,9 +98,23 @@ const finish = () => {
   rl.close();
 };
 
-await installDeps();
-createTailwindConfig();
-createPostcssConfig();
-createThemeCSS();
-await patchMainEntry();
-finish();
+const run = async () => {
+  await installDeps();
+  createTailwindConfig();
+  createPostcssConfig();
+
+  const themeType = (
+    await ask(
+      "¿Quieres la versión [full] o [slim] del theme? (default: full): ",
+    )
+  )
+    .trim()
+    .toLowerCase();
+
+  createThemeCSS(themeType.toLowerCase().includes("slim") ? "slim" : "full");
+
+  await patchMainEntry();
+  finish();
+};
+
+await run();

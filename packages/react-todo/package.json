@@ -17,7 +17,7 @@
   },
   "devDependencies": {
     "@codespartan/dev-tools": "workspace:*",
-    "@codespartan/ui-theme": "workspace:^",
+    "@codespartan/ui-theme": "workspace:*",
     "@tailwindcss/vite": "4.1.1",
     "@vitejs/plugin-react": "^4.0.0",
     "autoprefixer": "10.4.21",

@@ -1,12 +1,10 @@
 {
   "name": "@codespartan/ui-theme",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
-  "bin": {
-    "codespartan-ui-theme": "./bin/codespartan-ui-theme.js"
-  },
+  "description": "Tailwind Theme UI corporativo para proyectos CodeSpartan",
   "keywords": [
-    "tailwind",
+    "ui-theme",
     "ui",
     "theme",
     "codespartan",
@@ -15,33 +13,67 @@
   ],
   "license": "MIT",
   "author": "John Krbaio <jcarballo@codespartan.es>",
-  "description": "Tailwind Theme UI corporativo para proyectos CodeSpartan",
   "type": "module",
   "exports": {
-    "./preset": "./preset.js",
-    "./theme.css": "./theme.css",
-    "./fonts.css": "./fonts.css",
-    "./tailwind-config": "./tailwind.config.js",
-    "./typography": "./typography.js",
-    "./index": "./index.js",
-    "./colors": "./colors.js"
+    "./theme.css": "./dist/styles/theme.css",
+    "./theme-full.css": "./dist/styles/theme-full.css",
+    "./theme-slim.css": "./dist/styles/theme-slim.css",
+    "./fonts.css": "./dist/styles/fonts.css",
+    "./colors.css": "./dist/styles/colors.css",
+    "./common.css": "./dist/styles/common.css",
+    "./tailwind-config": {
+      "import": "./dist/scripts/tailwind.config.js",
+      "require": "./dist/scripts/tailwind.config.js"
+    },
+    "./typography": {
+      "import": "./dist/scripts/typography.js",
+      "require": "./dist/scripts/typography.js"
+    },
+    "./tokens-raw": {
+      "import": "./dist/tokens/tokens.raw.js",
+      "require": "./dist/tokens/tokens.raw.js"
+    },
+    "./tokens": {
+      "import": "./dist/tokens/tokens.semantic.js",
+      "require": "./dist/tokens/tokens.semantic.js"
+    },
+    "./preset": {
+      "import": "./dist/esm/preset.js",
+      "require": "./dist/preset.js"
+    },
+    "./css": {
+      "import": "./dist/styles/theme.css",
+      "require": "./dist/styles/theme.css"
+    },
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/index.js"
+    }
   },
-  "main": "index.js",
+  "main": "./dist/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/types/index.d.ts",
+  "style": "./dist/styles/theme.css",
+  "bin": {
+    "codespartan-ui-theme": "./bin/codespartan-ui-theme.js"
+  },
   "files": [
-    "preset.js",
-    "theme.css",
-    "fonts.css",
-    "tailwind.config.js",
-    "typography.js",
-    "index.js"
+    "dist"
   ],
-  "types": "./typography.d.ts",
   "scripts": {
-    "build": "tsup",
-    "clean": "rm -rf dist",
+    "prebuild": "pnpm tokens:build && rm -rf dist",
+    "build": "pnpm build:preset",
+    "build:modular": "cross-env BUILD_MODE=modular tsup",
+    "build:preset": "cross-env BUILD_MODE=preset tsup",
+    "postbuild": "node scripts/post-build.js",
+    "tokens:build": "node scripts/build-tokens.js",
+    "dev": "pnpm build:modular --watch",
     "sort": "pnpm exec sort-package-json"
   },
   "devDependencies": {
+    "cross-env": "7.0.3",
+    "cssnano": "7.0.6",
+    "postcss": "8.5.3",
     "tsup": "8.4.0"
   },
   "peerDependencies": {
