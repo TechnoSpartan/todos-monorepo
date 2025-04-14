@@ -1,4 +1,4 @@
-import config from "./tailwind.config.js";
+import config from "./src/tailwind.config.js";
 import path from "path";
 import { fileURLToPath } from "url";
 

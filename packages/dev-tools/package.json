@@ -4,6 +4,10 @@
   "description": "",
   "main": "index.js",
   "type": "module",
+  "bin": {
+    "codespartan-hooks": "./git-hooks/bin/codespartan-hooks.js",
+    "codespartan-scripts": "./scripts/bin/codespartan-scripts.js"
+  },
   "files": [
     "dist/",
     "release-please/release-please.json"

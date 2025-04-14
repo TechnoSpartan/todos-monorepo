@@ -1,0 +1,22 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPoints": [
+    "packages/dev-tools/scripts",
+    "packages/dev-tools/commitizen",
+    "packages/dev-tools/commitlint",
+    "packages/dev-tools/prettier-config",
+    "packages/dev-tools/release-please",
+    "packages/dev-tools/eslint-config",
+    "packages/dev-tools/git-hooks"
+  ],
+  "out": "docs/typedoc",
+  "excludePrivate": true,
+  "excludeProtected": true,
+  "excludeExternals": true,
+  "includeVersion": true,
+  "name": "@codespartan/dev-tools",
+  "tsconfig": "./tsconfig.json",
+  "readme": "none",
+  "categorizeByGroup": false,
+  "sort": ["source-order"]
+}

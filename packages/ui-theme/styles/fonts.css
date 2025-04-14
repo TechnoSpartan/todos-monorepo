@@ -1,0 +1,13 @@
+/* 🔗 Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&family=Exo+2&family=Lato&family=Michroma&family=Montserrat&family=Open+Sans&family=Orbitron&family=Poppins&family=Quantico&family=Rajdhani&display=swap");
+
+/* 💡 Variables tipográficas */
+:root {
+  --font-sans:
+    "Michroma", "Montserrat", "Orbitron", "Poppins", "Inter", system-ui,
+    sans-serif;
+  --font-display:
+    "Orbitron", "Michroma", "Quantico", "Audiowide", "Rajdhani", "Exo 2",
+    "Lato", "Open Sans", sans-serif;
+  --font-mono: "Fira Code", monospace;
+}

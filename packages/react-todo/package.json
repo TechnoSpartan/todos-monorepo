@@ -17,10 +17,15 @@
   },
   "devDependencies": {
     "@codespartan/dev-tools": "workspace:*",
+    "@codespartan/ui-theme": "workspace:*",
+    "@tailwindcss/vite": "4.1.1",
     "@vitejs/plugin-react": "^4.0.0",
+    "autoprefixer": "10.4.21",
     "eslint": "9.23.0",
     "eslint-plugin-react": "7.37.4",
+    "postcss": "8.5.3",
     "prettier": "4.0.0-alpha.12",
+    "tailwindcss": "4.1.1",
     "vite": "^4.0.0"
   }
 }
