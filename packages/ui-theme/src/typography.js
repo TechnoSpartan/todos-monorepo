@@ -1,4 +1,4 @@
-// packages/tailwind-config/typography.js
+// packages/ui-theme/typography.js
 export default {
   sans: [
     "Michroma",

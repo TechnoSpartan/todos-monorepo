@@ -1,15 +1,15 @@
-// packages/tailwind-config/colors.js
+// src/tokens.raw.js
 export default {
   primary: {
-    DEFAULT: "#248ea9", // Azul verdoso
-    dark: "#165e73", // Azul verdoso oscuro
+    DEFAULT: "#248ea9",
+    dark: "#165e73",
   },
   secondary: {
     DEFAULT: "#52b2bf",
     dark: "#22666f",
   },
   accent: {
-    DEFAULT: "#ffa726", // Naranja suave (opcional)
+    DEFAULT: "#ffa726",
   },
   neutral: {
     light: "#f4f4f4",
