@@ -1,6 +1,6 @@
 {
   "name": "@codespartan/ui-theme",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "description": "Tailwind Theme UI corporativo para proyectos CodeSpartan",
   "keywords": [
