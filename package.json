@@ -1,6 +1,6 @@
 {
   "name": "@codespartan/todos-monorepo",
-  "version": "0.1.0",
+  "version": "0.3.1",
   "private": true,
   "description": "Ejemplo de lista de TODOs en distintas tecnologías",
   "keywords": [
